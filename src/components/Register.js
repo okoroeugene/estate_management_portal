@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-class Login extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
     }
@@ -12,7 +12,6 @@ class Login extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12">
-                            {/* Authentication card start */}
                             <form className="md-float-material form-material">
                                 <div className="text-center">
                                     <img src="src/assets/images/logo.png" alt="logo.png" />
@@ -21,36 +20,58 @@ class Login extends Component {
                                     <div className="card-block">
                                         <div className="row m-b-20">
                                             <div className="col-md-12">
-                                                <h3 className="text-center">Sign In</h3>
+                                                <h3 className="text-center txt-primary">Sign up</h3>
                                             </div>
+                                        </div>
+                                        <div className="form-group form-primary">
+                                            <input type="text" name="user-name" className="form-control" required />
+                                            <span className="form-bar" />
+                                            <label className="float-label">Choose Username</label>
                                         </div>
                                         <div className="form-group form-primary">
                                             <input type="text" name="email" className="form-control" required />
                                             <span className="form-bar" />
                                             <label className="float-label">Your Email Address</label>
                                         </div>
-                                        <div className="form-group form-primary">
-                                            <input type="password" name="password" className="form-control" required />
-                                            <span className="form-bar" />
-                                            <label className="float-label">Password</label>
+                                        <div className="row">
+                                            <div className="col-sm-6">
+                                                <div className="form-group form-primary">
+                                                    <input type="password" name="password" className="form-control" required />
+                                                    <span className="form-bar" />
+                                                    <label className="float-label">Password</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="form-group form-primary">
+                                                    <input type="password" name="confirm-password" className="form-control" required />
+                                                    <span className="form-bar" />
+                                                    <label className="float-label">Confirm Password</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="row m-t-25 text-left">
-                                            <div className="col-12">
-                                                <div className="checkbox-fade fade-in-primary d-">
+                                            <div className="col-md-12">
+                                                <div className="checkbox-fade fade-in-primary">
                                                     <label>
                                                         <input type="checkbox" defaultValue />
                                                         <span className="cr"><i className="cr-icon icofont icofont-ui-check txt-primary" /></span>
-                                                        <span className="text-inverse">Remember me</span>
+                                                        <span className="text-inverse">I read and accept <a href="#">Terms &amp; Conditions.</a></span>
                                                     </label>
                                                 </div>
-                                                <div className="forgot-phone text-right float-right">
-                                                    <a href="auth-reset-password.html" className="text-right f-w-600"> Forgot Password?</a>
+                                            </div>
+                                            <div className="col-md-12">
+                                                <div className="checkbox-fade fade-in-primary">
+                                                    <label>
+                                                        <input type="checkbox" defaultValue />
+                                                        <span className="cr"><i className="cr-icon icofont icofont-ui-check txt-primary" /></span>
+                                                        <span className="text-inverse">Send me the <a href="#!">Newsletter</a> weekly.</span>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="row m-t-30">
                                             <div className="col-md-12">
-                                                <button type="button" className="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Sign in</button>
+                                                <button type="button" className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now</button>
                                             </div>
                                         </div>
                                         <hr />
@@ -66,8 +87,8 @@ class Login extends Component {
                                     </div>
                                 </div>
                             </form>
-                            {/* end of form */}
                         </div>
+
                         {/* end of col-sm-12 */}
                     </div>
                     {/* end of row */}
@@ -79,4 +100,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Register;

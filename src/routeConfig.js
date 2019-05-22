@@ -13,6 +13,7 @@ import MainLayout from './components/MainLayout';
 import EmptyLayout from './components/EmptyLayout';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import Register from './components/Register';
 
 // function isAuthenticated() {
 //     var token = window.sessionStorage.getItem(constants.TOKEN)
@@ -45,6 +46,7 @@ const App = () => (
     <Router history={history}>
         <Switch>
             <AppRoute exact path={"/login"} Layout={EmptyLayout} Component={Login} />
+            <AppRoute exact path={"/register"} Layout={EmptyLayout} Component={Register} />
             <AppRoute exact path={"/"} Layout={MainLayout} Component={Dashboard} />
         </Switch>
     </Router>
