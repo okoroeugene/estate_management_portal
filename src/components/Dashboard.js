@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions';
 import axios from 'axios';
+import { greeting } from '../utils';
 
 class Dashboard extends Component {
     constructor() {
@@ -11,151 +15,90 @@ class Dashboard extends Component {
         }
     }
     componentDidMount() {
-
+        console.log(this.props.user.current);
     }
     render() {
         return (
-            <div>
-                <div className="page-header">
-                    <div className="page-block">
-                        <div className="row align-items-center">
-                            <div className="col-md-8">
-                                <div className="page-header-title">
-                                    <h4 className="m-b-10">Dashboard</h4>
-                                </div>
-                                <ul className="breadcrumb">
-                                    <li className="breadcrumb-item">
-                                        <a href="index.html">
-                                            <i className="feather icon-home" />
-                                        </a>
-                                    </li>
-                                    <li className="breadcrumb-item"><a href="#!">Home</a> </li>
-                                    <li className="breadcrumb-item"><a href="#!">Dashboard</a></li>
-                                </ul>
+            <div className="dt-content">
+                <div className="ant-row">
+                    <div className="gx-order-lg-2 ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-24">
+                        <div className="ant-card gx-card-widget  ant-card-bordered">
+                            <div className="ant-card-body">
+                                <h2>Hello {this.props.user.current.username}</h2>
+                                <p>Welcome to or estate management portal</p>
+                                {/* <p><h4>Role:</h4></p> */}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* [ breadcrumb ] end */}
-                <div className="pcoded-inner-content">
-                    <div className="main-body">
-                        <div className="page-wrapper">
-                            <div className="page-body">
-                                {/* [ page content ] start */}
-                                <div className="row">
-                                    {/* page statustic card start */}
-                                    <div className="col-lg-3 col-md-6">
-                                        <div className="card">
-                                            <div className="card-block">
-                                                <div className="row align-items-center">
-                                                    <div className="col-8">
-                                                        <h4 className="text-c-yellow">$30200</h4>
-                                                        <h6 className="text-muted m-b-0">All Earnings</h6>
-                                                    </div>
-                                                    <div className="col-4 text-right">
-                                                        <i className="feather icon-bar-chart-2 f-28" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="card-footer bg-c-yellow">
-                                                <div className="row align-items-center">
-                                                    <div className="col-9">
-                                                        <p className="text-white m-b-0">% change</p>
-                                                    </div>
-                                                    <div className="col-3 text-right">
-                                                        <i className="feather icon-trending-up text-white f-16" />
-                                                    </div>
-                                                </div>
+                <div className="ant-row">
+                    <div className="col-xl-12 order-sm-1">
+                        <div className="row">
+                            <div className="col-md-3 col-6">
+                                <div className="dt-card text-white bg-cyan">
+                                    <div className="dt-card__body p-4">
+                                        <div className="media">
+                                            <i className="icon icon-diamond icon-4x mr-2 align-self-center" />
+                                            <div className="media-body">
+                                                <h2 className="mb-1 h1 font-weight-semibold text-white">09</h2>
+                                                <p className="mb-0">All users</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-lg-3 col-md-6">
-                                        <div className="card">
-                                            <div className="card-block">
-                                                <div className="row align-items-center">
-                                                    <div className="col-8">
-                                                        <h4 className="text-c-green">290+</h4>
-                                                        <h6 className="text-muted m-b-0">Page Views</h6>
-                                                    </div>
-                                                    <div className="col-4 text-right">
-                                                        <i className="feather icon-file-text f-28" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="card-footer bg-c-green">
-                                                <div className="row align-items-center">
-                                                    <div className="col-9">
-                                                        <p className="text-white m-b-0">% change</p>
-                                                    </div>
-                                                    <div className="col-3 text-right">
-                                                        <i className="feather icon-trending-up text-white f-16" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-md-6">
-                                        <div className="card">
-                                            <div className="card-block">
-                                                <div className="row align-items-center">
-                                                    <div className="col-8">
-                                                        <h4 className="text-c-red">145</h4>
-                                                        <h6 className="text-muted m-b-0">Task</h6>
-                                                    </div>
-                                                    <div className="col-4 text-right">
-                                                        <i className="feather icon-calendar f-28" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="card-footer bg-c-red">
-                                                <div className="row align-items-center">
-                                                    <div className="col-9">
-                                                        <p className="text-white m-b-0">% change</p>
-                                                    </div>
-                                                    <div className="col-3 text-right">
-                                                        <i className="feather icon-trending-down text-white f-16" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-md-6">
-                                        <div className="card">
-                                            <div className="card-block">
-                                                <div className="row align-items-center">
-                                                    <div className="col-8">
-                                                        <h4 className="text-c-blue">500</h4>
-                                                        <h6 className="text-muted m-b-0">Downloads</h6>
-                                                    </div>
-                                                    <div className="col-4 text-right">
-                                                        <i className="feather icon-thumbs-down f-28" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="card-footer bg-c-blue">
-                                                <div className="row align-items-center">
-                                                    <div className="col-9">
-                                                        <p className="text-white m-b-0">% change</p>
-                                                    </div>
-                                                    <div className="col-3 text-right">
-                                                        <i className="feather icon-trending-down text-white f-16" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* page statustic card end */}
-                                    {/* widget-statstic start */}
                                 </div>
-                                {/* [ page content ] end */}
+                            </div>
+                            <div className="col-md-3 col-6">
+                                <div className="dt-card text-white bg-warning">
+                                    <div className="dt-card__body p-4">
+                                        <div className="media">
+                                            <i className="icon icon-tasks icon-4x mr-2 align-self-center" />
+                                            <div className="media-body">
+                                                <h2 className="mb-1 h1 font-weight-semibold text-white">687</h2>
+                                                <p className="mb-0">Residents</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3 col-6">
+                                <div className="dt-card text-white bg-teal">
+                                    <div className="dt-card__body p-4">
+                                        <div className="media">
+                                            <i className="icon icon-team icon-4x mr-2 align-self-center" />
+                                            <div className="media-body">
+                                                <h2 className="mb-1 h1 font-weight-semibold text-white">04</h2>
+                                                <p className="mb-0">Visitors</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3 col-6">
+                                <div className="dt-card text-white bg-danger">
+                                    <div className="dt-card__body p-4">
+                                        <div className="media">
+                                            <i className="icon icon-files icon-4x mr-2 align-self-center" />
+                                            <div className="media-body">
+                                                <h2 className="mb-1 h1 font-weight-semibold text-white">09</h2>
+                                                <p className="mb-0">Files</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         );
     }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+    user: state.user
+})
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(actionCreators, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
