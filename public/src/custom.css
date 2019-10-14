@@ -1,4 +1,4 @@
-
+/* 
 @font-face {
     font-family: 'AvenirNextLTPro-Regular';
     src: url('./fonts/AvenirNextLTPro-Regular.otf') format('woff');
@@ -7,6 +7,10 @@
   body{
       font-family: 'AvenirNextLTPro-Regular'!important;
   }
+
+  .form-material .form-control, .float-label {
+    font-size: 12px !important;
+}
 
 .pcoded[theme-layout=vertical] .pcoded-navbar .pcoded-item li.pcoded-hasmenu>a:after {
     top: 8px;
@@ -34,4 +38,38 @@
 
 select.form-control:not([size]):not([multiple]) {
     height: calc(2.5rem + 2px);
+}
+
+.pcoded .pcoded-header[header-theme="theme1"] {
+    background: linear-gradient(to bottom, #116e22, #116e22 , #116e22) !important;
+}
+
+.pcoded[fream-type="theme1"][theme-layout="vertical"] .page-header {
+    background: linear-gradient(to top, #116e22, #116e22 , #116e22) !important;
+}
+
+.pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.active>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.active:hover>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.pcoded-trigger>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li.pcoded-trigger:hover>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li:hover>a, .pcoded[theme-layout="vertical"] .pcoded-navbar[active-item-theme="theme1"] .pcoded-item>li:hover:hover>a {
+    background: #515151;
+    color: #fff;
+}
+body[themebg-pattern="theme1"] {
+    background-color: #1d4628;
+}
+
+.pcoded[theme-layout="vertical"][vertical-nav-type="collapsed"] .main-menu-header .img-menu-user {
+    width: 30px;
+    height: 30px!Important;
+}
+
+.pcoded-mtext{
+    font-weight:bold;
+} */
+
+.sideAvatar {
+    color: rgb(245, 106, 0); 
+    background-color: rgb(253, 227, 207);
+}
+
+.avatarTxt {
+    transform: scale(1) translateX(-50%);
 }
